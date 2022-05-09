@@ -94,23 +94,35 @@ namespace Deviceep.API.Controllers
         }
         // Controls if the user has the right verifications to use this function
         // Checks the role as well
-        [Authorize(Roles = "Administrator")]
+        
         [HttpPost]
         // Possible Responses from the function
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateAttendance([FromBody] CreateAttendanceDTO createAttendanceDTO)
+        public async Task<IActionResult> CreateAttendance(/*[FromBody] CreateAttendanceDTO createAttendanceDTO*/ string StudentID, int CourseID)
         {
             if (!ModelState.IsValid)
             {
                 _logger.LogError($"Invalid POST attempt in {nameof(CreateAttendance)}");
                 return BadRequest(ModelState);
             }
-            var attendance = _mapper.Map<Attendance>(createAttendanceDTO);
-            await _attendanceService.AddAsync(attendance);
+            var isValidStudent = false;
+            var isValidCourse = false;
+            var isValidEnrollment = false;
+            var isValidHour = false;
+            var isValidAttendance = false;
 
-            return CreatedAtRoute("GetCourse", new { id = attendance.Id }, attendance);
+            if(isValidStudent == true && isValidCourse && isValidEnrollment && isValidHour && isValidAttendance)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+            
         }
         // Controls if the user has the right verifications to use this function
         [Authorize]

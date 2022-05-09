@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Deviceep.Service.Services
 {
-    class EnrollmentService : Service<Enrollment>, IEnrollmentService
+    public class EnrollmentService : Service<Enrollment>, IEnrollmentService
     {
 
 
