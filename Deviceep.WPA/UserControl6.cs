@@ -10,23 +10,11 @@ using System.Windows.Forms;
 
 namespace Deviceep.WPA
 {
-    public partial class Form1 : Form
+    public partial class UserControl6 : UserControl
     {
-        public Form1()
+        public UserControl6()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form2 form2 = new Form2();
-            form2.Show();
         }
     }
 }
