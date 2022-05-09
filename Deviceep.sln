@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deviceep.Service", "Devicee
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deviceep.API", "Deviceep.API\Deviceep.API.csproj", "{A72021D9-09B5-4B66-9631-DB65FA746298}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deviceep.UnitTest", "Deviceep.UnitTest\Deviceep.UnitTest.csproj", "{20AA1A2E-3C75-4485-AB67-87B9B472FEAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deviceep.UnitTest", "Deviceep.UnitTest\Deviceep.UnitTest.csproj", "{20AA1A2E-3C75-4485-AB67-87B9B472FEAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deviceep.WPA", "Deviceep.WPA\Deviceep.WPA.csproj", "{26FEB244-E307-42EF-AB99-8DDFAEB9A179}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{20AA1A2E-3C75-4485-AB67-87B9B472FEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20AA1A2E-3C75-4485-AB67-87B9B472FEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20AA1A2E-3C75-4485-AB67-87B9B472FEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26FEB244-E307-42EF-AB99-8DDFAEB9A179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26FEB244-E307-42EF-AB99-8DDFAEB9A179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26FEB244-E307-42EF-AB99-8DDFAEB9A179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26FEB244-E307-42EF-AB99-8DDFAEB9A179}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

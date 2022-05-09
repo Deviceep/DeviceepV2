@@ -100,7 +100,7 @@ namespace Deviceep.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateAttendance([FromBody] CreateAttendanceDTO createAttendanceDTO)
+        public async Task<IActionResult> CreateAttendance(/*[FromBody] CreateAttendanceDTO createAttendanceDTO*/ string StudentID, int CourseID)
         {
             if (!ModelState.IsValid)
             {
@@ -114,8 +114,15 @@ namespace Deviceep.API.Controllers
             var isValidAttendance = false;
 
             if(isValidStudent == true && isValidCourse && isValidEnrollment && isValidHour && isValidAttendance)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
 
-            return CreatedAtRoute("GetCourse");
+            
         }
         // Controls if the user has the right verifications to use this function
         [Authorize]
