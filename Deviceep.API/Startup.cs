@@ -68,6 +68,7 @@ namespace Deviceep.API
             services.AddScoped<IDepartmentService, DepartmentService>();
             services.AddScoped<IFacultyService, FacultyService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IEnrollmentService, EnrollmentService>();
 
             // Authentication for user
             services.AddScoped<IAuthManager, AuthManager>();
