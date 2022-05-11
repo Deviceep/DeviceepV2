@@ -32,6 +32,7 @@ namespace Deviceep.API.Mapping
                 CreateMap<Course, CourseTimeInfoDTO>().ReverseMap();
                 CreateMap<Course, CreateCourseDTO>().ReverseMap();
                 CreateMap<Course, UpdateCourseDTO>().ReverseMap();
+                CreateMap<Course, GetCourseDTO>().ReverseMap();
                 // CourseTimeInfo
                 CreateMap<CourseTimeInfo, CourseTimeInfoDTO>().ReverseMap();
                 CreateMap<CourseTimeInfo, CreateCourseTimeInfoDTO>().ReverseMap();

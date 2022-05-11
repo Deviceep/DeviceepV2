@@ -94,5 +94,21 @@ namespace Deviceep.Data.Repositories
             return await query.AsNoTracking()
                 .ToPagedListAsync(requestParams.PageNnumber, requestParams.PageSize);
         }
+        public bool IsFieldValueUnique(Expression<Func<TEntity, bool>> predicate)
+        {
+            var alreadyExists = _dbSet.Any<TEntity>(predicate);
+
+            return alreadyExists;
+        }
+
+        // Tabloda buna ait bu vsr mı id'si 3 olup o rowda 
+        // courseid'si verdiğimiz yerle uyuşan var mı
+
+        public bool IsEnrollExists(Expression<Func<TEntity, bool, bool>> predicate)
+        {
+            var alreadyExists = false;
+
+            return alreadyExists;
+        }
     }
 }
