@@ -26,13 +26,18 @@ namespace Deviceep.API.Controllers
         // Definition of variables for Dependency Injection
         private readonly IAttendanceService _attendanceService;
         private readonly IMapper _mapper;
+        private readonly IUserService _userService;
+        private readonly ICourseService _courseService;
         private readonly ILogger<AttendanceController> _logger;
 
 
         // Constructor for the class
         // Initiating the dependency injection
-        public AttendanceController(IAttendanceService attendanceService, IMapper mapper, ILogger<AttendanceController> logger)
+        public AttendanceController(IAttendanceService attendanceService, IMapper mapper, ILogger<AttendanceController> logger,
+            IUserService userService, ICourseService courseService)
         {
+            _courseService = courseService;
+            _userService = userService;
             _attendanceService = attendanceService;
             _mapper = mapper;
             _logger = logger;
@@ -40,23 +45,23 @@ namespace Deviceep.API.Controllers
         }
 
 
-        //[HttpGet(Name = "GetAttendances")]
-        //// Gets all the Attendances
-        //// It uses PagedList feature to not boggle the database
-        //public async Task<IActionResult> GetAttendances([FromQuery] RequestParams requestParams)
-        //{
-        //    try
-        //    {
-        //        var attendances = await _attendanceService.GetPagedList(requestParams, null);
-        //        var results = _mapper.Map<IList<AttendanceDTO>>(attendances);
-        //        return Ok(results);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError($"Something went wrong in the {nameof(GetAttendances)}", ex);
-        //        return StatusCode(500, "Internal Server Error");
-        //    }
-        //}
+        [HttpGet(Name = "GetAttendances")]
+        // Gets all the Attendances
+        // It uses PagedList feature to not boggle the database
+        public async Task<IActionResult> GetAttendances([FromQuery] RequestParams requestParams)
+        {
+            try
+            {
+                var attendances = await _attendanceService.GetPagedList(requestParams, null);
+                var results = _mapper.Map<IList<AttendanceDTO>>(attendances);
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong in the {nameof(GetAttendances)}", ex);
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
 
 
         [HttpGet("{id:int}", Name = "GetAttendance")]
@@ -74,28 +79,9 @@ namespace Deviceep.API.Controllers
 
 
 
-        [HttpGet(Name = "GetQRCoder")]
-        // Possible Responses from the function
-       
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        // Gets a specific Attendance according to the id it has been given
-        public async Task<IActionResult> GetQRCoder(string a)
-        {
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(a, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20,Color.DarkBlue,Color.Red,false);
-            //var attendance = await _attendanceService.GetByIdAsync(id);
-            // var result = _mapper.Map<AttendanceDTO>(attendance);
-            qrFunctions qrFuncs = new qrFunctions();
-            var bytes = qrFuncs.ImageToByteArray(qrCodeImage);
-            return File(bytes, "image/bmp");
-        }
-        // Controls if the user has the right verifications to use this function
-        // Checks the role as well
         
-        [HttpPost]
+
+       [HttpPost]
         // Possible Responses from the function
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -107,13 +93,13 @@ namespace Deviceep.API.Controllers
                 _logger.LogError($"Invalid POST attempt in {nameof(CreateAttendance)}");
                 return BadRequest(ModelState);
             }
-            var isValidStudent = false;
-            var isValidCourse = false;
-            var isValidEnrollment = false;
-            var isValidHour = false;
-            var isValidAttendance = false;
+            var isValidStudent = _userService.IsFieldValueUnique(StudentID);
+            var isValidCourse = _courseService.IsFieldValueUnique(CourseID);
+            //var isValidEnrollment = false;
+            //var isValidHour = false;
+            //var isValidAttendance = false;
 
-            if(isValidStudent == true && isValidCourse && isValidEnrollment && isValidHour && isValidAttendance)
+            if (isValidStudent == true && isValidCourse /*&& isValidEnrollment && isValidHour && isValidAttendance */)
             {
                 return Ok();
             }

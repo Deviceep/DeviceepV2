@@ -19,7 +19,8 @@ namespace Deviceep.Core.Repositories
             List<string> includes = null
 
             );
-
+        bool IsFieldValueUnique(Expression<Func<TEntity, bool>> predicate);
+        bool IsEnrollExists(Expression<Func<TEntity, bool, bool>> predicate);
         Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate);
 
         Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate); // herhangi bir parametreye göre

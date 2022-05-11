@@ -101,8 +101,17 @@ namespace Deviceep.Service.Services
             return await _repository.Where(predicate);
         }
 
-        
+        public bool IsEnrollExists(Expression<Func<TEntity, bool, bool>> predicate)
+        {
+            return _repository.IsEnrollExists(predicate);
+        }
 
-        
+        public bool IsFieldValueUnique(Expression<Func<TEntity, bool>> predicate)
+        {
+            return _repository.IsFieldValueUnique(predicate);
+        }
+
+
+
     }
 }

@@ -27,4 +27,10 @@ namespace Deviceep.API.DTOs
     {
         
     }
+    public class GetCourseDTO
+    {
+        public string UserId { get; set; }
+        public string CourseName { get; set; }
+        public string CourseDescription { get; set; }
+    }
 }

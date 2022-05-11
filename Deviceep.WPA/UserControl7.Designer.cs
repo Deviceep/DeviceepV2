@@ -61,6 +61,7 @@ namespace Deviceep.WPA
             this.button1.TabIndex = 2;
             this.button1.Text = "Generate";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -68,6 +69,7 @@ namespace Deviceep.WPA
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(219, 27);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 

@@ -7,5 +7,6 @@ namespace Deviceep.Core.Services
 {
     public interface IUserService : IService<User>
     {
+        bool IsFieldValueUnique(string ID);
     }
 }

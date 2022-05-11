@@ -7,6 +7,6 @@ namespace Deviceep.Core.Services
 {
     public interface ICourseService : IService<Course>
     {
-
+        bool IsFieldValueUnique(int ID);
     }
 }

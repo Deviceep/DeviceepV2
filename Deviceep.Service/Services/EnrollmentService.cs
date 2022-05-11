@@ -19,5 +19,11 @@ namespace Deviceep.Service.Services
         {
 
         }
+        public bool IsFieldValueUnique(string ID, int id)
+        {
+            var AlreadyExists = _unitOfWork.Enrollments.IsFieldValueUnique(x => x.UserId == ID);
+
+            return AlreadyExists;
+        }
     }
 }

@@ -36,7 +36,7 @@ namespace Deviceep.API.Controllers
         public async Task<IActionResult> GetCourses([FromQuery] RequestParams requestParams)
         {
             var courses = await _courseService.GetPagedList(requestParams);
-            var results = _mapper.Map<IList<CourseTimeInfoDTO>>(courses);
+            var results = _mapper.Map<IList<GetCourseDTO>>(courses);
             return Ok(results);
         }
 

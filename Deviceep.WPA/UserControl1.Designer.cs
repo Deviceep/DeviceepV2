@@ -61,6 +61,7 @@ namespace Deviceep.WPA
             this.button1.TabIndex = 2;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -91,6 +92,7 @@ namespace Deviceep.WPA
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.Size = new System.Drawing.Size(1000, 586);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // UserControl1
             // 
@@ -101,6 +103,7 @@ namespace Deviceep.WPA
             this.Controls.Add(this.panel1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(1000, 675);
+            this.Load += new System.EventHandler(this.UserControl1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

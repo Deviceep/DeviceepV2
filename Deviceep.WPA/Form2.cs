@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -105,7 +107,7 @@ namespace Deviceep.WPA
         {
             Application.Exit();
         }
-
+        static HttpClient client = new HttpClient();
         private void button8_Click(object sender, EventArgs e)
         {
             userControl11.Hide();
@@ -116,6 +118,10 @@ namespace Deviceep.WPA
             userControl61.Hide();
             userControl71.Show();
             userControl71.BringToFront();
+
+
+            
+            
         }
     }
 }
