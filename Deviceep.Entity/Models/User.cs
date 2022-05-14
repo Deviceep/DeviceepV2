@@ -11,17 +11,17 @@ namespace Deviceep.Entity.Models
         public User()
         {
             Attendances = new HashSet<Attendance>();
-            Enrollments = new HashSet<Enrollment>();
+            Enrollments = new HashSet<Enrollments>();
             UserDepartments = new HashSet<UserDepartment>();
         }
 
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string RFID { get; set; }
+        public string RFIDUSERS { get; set; }
         
        
         public ICollection<Attendance> Attendances { get; set; }
         public ICollection<UserDepartment> UserDepartments { get; set; }
-        public ICollection<Enrollment> Enrollments { get; set; }
+        public ICollection<Enrollments> Enrollments { get; set; }
     }
 }

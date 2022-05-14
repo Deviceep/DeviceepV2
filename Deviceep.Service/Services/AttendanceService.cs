@@ -18,5 +18,10 @@ namespace Deviceep.Service.Services
         {
 
         }
+
+        public async Task<bool> IsAttendanceExists(string StudentID, int CourseId)
+        {
+            return await _unitOfWork.Attendances.IsAttendanceExists(StudentID, CourseId);
+        }
     }
 }

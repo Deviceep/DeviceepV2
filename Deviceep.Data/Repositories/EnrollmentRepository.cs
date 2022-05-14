@@ -9,20 +9,22 @@ using System.Threading.Tasks;
 
 namespace Deviceep.Data.Repositories
 {
-    class EnrollmentRepository : Repository<Enrollment>, IEnrollmentRepository
+    public class EnrollmentRepository : Repository<Enrollments>, IEnrollmentRepository
 
     {
         private AppDbContext _appDbContext { get => _context as AppDbContext; }
 
         public EnrollmentRepository(AppDbContext context) : base(context)
         {
+            
         }
 
-        //public async Task<bool> CheckIfStudentHasClass(string StudId, int CourseId)
-        //{
-        //   return await _appDbContext.Enrollment.AnyAsync(x => x.UserId == StudId && x.CourseId == CourseId);
-        //}
+        public async Task<bool> CheckIfStudentHasClass(string StudId, int CourseId)
+        {
+           
+            return await _appDbContext.Enrollments.AnyAsync(x=> x.UserId == StudId && x.CourseId == CourseId);
+        }
 
-        
+       
     }
 }

@@ -26,6 +26,9 @@ namespace Deviceep.Data.Repositories
             return await _appDbContext.Attendances.Include(x => x.Course).SingleOrDefaultAsync(x => x.Id == Id);
         }
 
-
+        public async Task<bool> IsAttendanceExists(string StudentID, int CourseId)
+        {
+            return await _appDbContext.Attendances.AnyAsync(x => x.UserId == StudentID && x.CourseId == CourseId);
+        }
     }
 }

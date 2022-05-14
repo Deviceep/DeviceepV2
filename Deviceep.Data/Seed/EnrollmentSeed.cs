@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Deviceep.Data.Seed
 {
-    class EnrollmentSeed : IEntityTypeConfiguration<Enrollment>
+    class EnrollmentSeed : IEntityTypeConfiguration<Enrollments>
     {
         private readonly int[] _ids;
 
@@ -18,7 +18,7 @@ namespace Deviceep.Data.Seed
             _ids = ids;
         }
 
-        public void Configure(EntityTypeBuilder<Enrollment> builder)
+        public void Configure(EntityTypeBuilder<Enrollments> builder)
         {
             throw new NotImplementedException();
         }

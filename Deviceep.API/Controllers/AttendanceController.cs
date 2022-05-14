@@ -28,19 +28,19 @@ namespace Deviceep.API.Controllers
         private readonly IMapper _mapper;
         private readonly IUserService _userService;
         private readonly ICourseService _courseService;
-        //private readonly IEnrollmentService _enrollmentService;
+        private readonly IEnrollmentService _enrollmentService;
         private readonly ILogger<AttendanceController> _logger;
 
 
         // Constructor for the class
         // Initiating the dependency injection
         public AttendanceController(IAttendanceService attendanceService, IMapper mapper, ILogger<AttendanceController> logger,
-            IUserService userService, ICourseService courseService/*, IEnrollmentService enrollmentService*/)
+            IUserService userService, ICourseService courseService, IEnrollmentService enrollmentService)
         {
             _courseService = courseService;
             _userService = userService;
             _attendanceService = attendanceService;
-            /*_enrollmentService = enrollmentService;*/
+            _enrollmentService = enrollmentService;
             _mapper = mapper;
             _logger = logger;
 
@@ -95,21 +95,36 @@ namespace Deviceep.API.Controllers
                 _logger.LogError($"Invalid POST attempt in {nameof(CreateAttendance)}");
                 return BadRequest(ModelState);
             }
-            var isValidStudent = _userService.IsFieldValueUnique(StudentID);
-            var isValidCourse = _courseService.IsFieldValueUnique(CourseID);
-            //var isValidEnrollment = _enrollmentService.IsFieldValueUnique(StudentID,CourseID);
+            bool isValidStudent = _userService.IsFieldValueUnique(StudentID);
+            bool isValidCourse = _courseService.IsFieldValueUnique(CourseID);
+            bool isValidEnrollment = await _enrollmentService.IsFieldValueUnique(StudentID,CourseID);
             //var isValidHour = false;
-            //var isValidAttendance = false;
+            var isValidAttendance = await _attendanceService.IsAttendanceExists(StudentID,CourseID);
+            var model = new CreateAttendanceDTO { CourseId = CourseID, UserID= StudentID, AttendanceDate = DateTime.Now};
 
-            if (isValidStudent == true /*&& isValidCourse && isValidEnrollment && isValidHour && isValidAttendance */)
+            if (isValidStudent /* && isValidHour && isValidAttendance */)
             {
-                return Ok();
-            }
-            else
-            {
-                return BadRequest();
-            }
+                if (isValidCourse)
+                {
+                    if (isValidEnrollment)
+                    {
+                        if (!isValidAttendance)
+                        {
 
+                            var CreateAttendance = _mapper.Map<Attendance>(model);
+                            await _attendanceService.AddAsync(CreateAttendance);
+                            return Ok("");
+
+                        }
+                        else return BadRequest("You Have Attendance");
+                    }
+                    else return BadRequest("Student is not Enrolled in this Course!");
+                }
+                else return BadRequest("No Such Lesson!");
+                
+            }
+            else { return BadRequest("No Student"); }
+           
             
         }
         // Controls if the user has the right verifications to use this function

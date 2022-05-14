@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Deviceep.Core.Repositories
 {
-    public interface IEnrollmentRepository : IRepository<Enrollment>
+    public interface IEnrollmentRepository : IRepository<Enrollments>
     {
 
-        //public Task<bool> CheckIfStudentHasClass(string StudId, int CourseId);
+        Task<bool> CheckIfStudentHasClass(string StudId, int CourseId);
     }
 }

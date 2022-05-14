@@ -8,6 +8,6 @@ namespace Deviceep.Core.Services
 {
     public interface IAttendanceService : IService<Attendance>
     {
-        
+        public Task<bool> IsAttendanceExists(string StudentID, int CourseId);
     }
 }

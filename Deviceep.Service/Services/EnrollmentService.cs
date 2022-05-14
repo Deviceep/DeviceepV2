@@ -10,20 +10,21 @@ using System.Threading.Tasks;
 
 namespace Deviceep.Service.Services
 {
-    public class EnrollmentService : Service<Enrollment>, IEnrollmentService
+    public class EnrollmentService : Service<Enrollments>, IEnrollmentService
     {
 
-        public readonly IEnrollmentRepository _enrollmentRepository;
+        
 
-        public EnrollmentService(IUnitOfWork unitOfWork, IRepository<Enrollment> repository, IEnrollmentRepository enrollmentRepository) : base(unitOfWork, repository)
+        public EnrollmentService(IUnitOfWork unitOfWork, IRepository<Enrollments> repository) : base(unitOfWork, repository)
         {
-            _enrollmentRepository = enrollmentRepository;
+            
         }
 
-        // x => {} böyleli bişey deneyelim
-        //public async Task<bool> IsFieldValueUnique(string ID, int id)
-        //{
-        //    return await _enrollmentRepository.CheckIfStudentHasClass(ID, id);
-        //}
+        //x => {} böyleli bişey deneyelim
+        public async Task<bool> IsFieldValueUnique(string ID, int id)
+        {
+            return await _unitOfWork.Enrollments.CheckIfStudentHasClass(ID, id);
+           
+        }
     }
 }

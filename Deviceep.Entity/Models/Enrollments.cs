@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Deviceep.Entity.Models
 {
-    public class Enrollment
+    public class Enrollments
     {
         public int Id { get; set; }
         public string UserId { get; set; }

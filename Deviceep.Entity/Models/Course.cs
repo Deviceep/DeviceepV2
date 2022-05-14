@@ -11,7 +11,7 @@ namespace Deviceep.Entity.Models
         {
             Attendances = new HashSet<Attendance>();
             CourseTimeInfoCourses = new HashSet<CourseTimeInfoCourse>();
-            Enrollments = new HashSet<Enrollment>();
+            Enrollments = new HashSet<Enrollments>();
             CourseClassrooms = new HashSet<CourseClassroom>();
 
         }
@@ -25,7 +25,7 @@ namespace Deviceep.Entity.Models
 
         
         public ICollection<Attendance> Attendances { get; set; }
-        public ICollection<Enrollment> Enrollments { get; set; }
+        public ICollection<Enrollments> Enrollments { get; set; }
         public ICollection<CourseTimeInfoCourse> CourseTimeInfoCourses { get; set; }
         public ICollection<CourseClassroom> CourseClassrooms { get; set; }
 
