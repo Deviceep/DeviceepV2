@@ -18,10 +18,10 @@ namespace Deviceep.Data.Repositories
         {
         }
 
-        public async Task<bool> CheckIfStudentHasClass(string StudId, int CourseId)
-        {
-           return await _appDbContext.Enrollments.AnyAsync(x => x.UserId == StudId && x.CourseId == CourseId);
-        }
+        //public async Task<bool> CheckIfStudentHasClass(string StudId, int CourseId)
+        //{
+        //   return await _appDbContext.Enrollment.AnyAsync(x => x.UserId == StudId && x.CourseId == CourseId);
+        //}
 
         
     }

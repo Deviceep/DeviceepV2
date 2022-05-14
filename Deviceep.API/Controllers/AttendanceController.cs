@@ -28,19 +28,19 @@ namespace Deviceep.API.Controllers
         private readonly IMapper _mapper;
         private readonly IUserService _userService;
         private readonly ICourseService _courseService;
-        private readonly IEnrollmentService _enrollmentService;
+        //private readonly IEnrollmentService _enrollmentService;
         private readonly ILogger<AttendanceController> _logger;
 
 
         // Constructor for the class
         // Initiating the dependency injection
         public AttendanceController(IAttendanceService attendanceService, IMapper mapper, ILogger<AttendanceController> logger,
-            IUserService userService, ICourseService courseService, IEnrollmentService enrollmentService)
+            IUserService userService, ICourseService courseService/*, IEnrollmentService enrollmentService*/)
         {
             _courseService = courseService;
             _userService = userService;
             _attendanceService = attendanceService;
-            _enrollmentService = enrollmentService;
+            /*_enrollmentService = enrollmentService;*/
             _mapper = mapper;
             _logger = logger;
 
@@ -97,11 +97,11 @@ namespace Deviceep.API.Controllers
             }
             var isValidStudent = _userService.IsFieldValueUnique(StudentID);
             var isValidCourse = _courseService.IsFieldValueUnique(CourseID);
-            var isValidEnrollment = _enrollmentService.IsFieldValueUnique(StudentID,CourseID);
+            //var isValidEnrollment = _enrollmentService.IsFieldValueUnique(StudentID,CourseID);
             //var isValidHour = false;
             //var isValidAttendance = false;
 
-            if (isValidStudent == true && isValidCourse /*&& isValidEnrollment && isValidHour && isValidAttendance */)
+            if (isValidStudent == true /*&& isValidCourse && isValidEnrollment && isValidHour && isValidAttendance */)
             {
                 return Ok();
             }

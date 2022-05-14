@@ -9,6 +9,6 @@ namespace Deviceep.Core.Services
 {
     public interface IEnrollmentService :  IService<Enrollment>
     {
-        Task<bool> IsFieldValueUnique(string ID, int id);
+        //Task<bool> IsFieldValueUnique(string ID, int id);
     }
 }

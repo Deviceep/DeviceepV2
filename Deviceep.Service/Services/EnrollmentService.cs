@@ -21,9 +21,9 @@ namespace Deviceep.Service.Services
         }
 
         // x => {} böyleli bişey deneyelim
-        public async Task<bool> IsFieldValueUnique(string ID, int id)
-        {
-            return await _enrollmentRepository.CheckIfStudentHasClass(ID, id);
-        }
+        //public async Task<bool> IsFieldValueUnique(string ID, int id)
+        //{
+        //    return await _enrollmentRepository.CheckIfStudentHasClass(ID, id);
+        //}
     }
 }
