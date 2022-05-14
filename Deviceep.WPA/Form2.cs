@@ -30,6 +30,7 @@ namespace Deviceep.WPA
             userControl71.Hide();
             userControl11.Show();
             userControl11.BringToFront();
+           
         }
 
         private void Form2_Load(object sender, EventArgs e)

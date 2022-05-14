@@ -29,6 +29,7 @@ namespace Deviceep.Data.Repositories
         public async Task AddAsync(TEntity entity)
         {
             await _dbSet.AddAsync(entity);
+            
         }
 
         public async Task AddRangeAsync(IEnumerable<TEntity> entities) // Task async programlamada void'e karşılık gelir

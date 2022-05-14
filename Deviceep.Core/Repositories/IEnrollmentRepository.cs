@@ -9,5 +9,7 @@ namespace Deviceep.Core.Repositories
 {
     public interface IEnrollmentRepository : IRepository<Enrollment>
     {
+
+        public Task<bool> CheckIfStudentHasClass(string StudId, int CourseId);
     }
 }

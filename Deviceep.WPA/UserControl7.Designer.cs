@@ -91,6 +91,7 @@ namespace Deviceep.WPA
             this.pictureBox1.Size = new System.Drawing.Size(1009, 698);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // UserControl7
             // 

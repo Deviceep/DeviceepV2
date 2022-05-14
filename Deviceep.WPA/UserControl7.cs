@@ -29,9 +29,15 @@ namespace Deviceep.WPA
             var response = client.GetStreamAsync(string.Format("Qr?a={0}",textBox1.Text));
             
             pictureBox1.Image = Bitmap.FromStream(response.Result);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

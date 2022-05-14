@@ -13,17 +13,17 @@ namespace Deviceep.Service.Services
     public class EnrollmentService : Service<Enrollment>, IEnrollmentService
     {
 
+        public readonly IEnrollmentRepository _enrollmentRepository;
 
-
-        public EnrollmentService(IUnitOfWork unitOfWork, IRepository<Enrollment> repository) : base(unitOfWork, repository)
+        public EnrollmentService(IUnitOfWork unitOfWork, IRepository<Enrollment> repository, IEnrollmentRepository enrollmentRepository) : base(unitOfWork, repository)
         {
-
+            _enrollmentRepository = enrollmentRepository;
         }
-        public bool IsFieldValueUnique(string ID, int id)
-        {
-            var AlreadyExists = _unitOfWork.Enrollments.IsFieldValueUnique(x => x.UserId == ID);
 
-            return AlreadyExists;
+        // x => {} böyleli bişey deneyelim
+        public async Task<bool> IsFieldValueUnique(string ID, int id)
+        {
+            return await _enrollmentRepository.CheckIfStudentHasClass(ID, id);
         }
     }
 }

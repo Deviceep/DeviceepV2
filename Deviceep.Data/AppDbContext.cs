@@ -23,7 +23,7 @@ namespace Deviceep.Data
         public DbSet<Classroom> Classrooms { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<CourseClassroom> CourseClassrooms { get; set; }
-        public DbSet<Enrollment> Enrollment { get; set; }
+        public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<CourseTimeInfo> CourseTimeInfos { get; set; }
         public DbSet<CourseTimeInfoCourse> CourseTimeInfoCourses { get; set; }
         public DbSet<Department> Departments { get; set; }
