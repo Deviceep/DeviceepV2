@@ -17,7 +17,7 @@ namespace Deviceep.Entity.Models
 
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string RFIDUSERS { get; set; }
+        public string HasRfid { get; set; }
         
        
         public ICollection<Attendance> Attendances { get; set; }

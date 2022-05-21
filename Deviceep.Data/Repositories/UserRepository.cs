@@ -1,5 +1,6 @@
 ﻿using Deviceep.Core.Repositories;
 using Deviceep.Entity.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ namespace Deviceep.Data.Repositories
 
         public UserRepository(AppDbContext context) : base(context)
         {
+        }
+
+        public async Task<User> GetWithAttendancetsByIdAsync(string rfid)
+        {
+            return await _appDbContext.Users.SingleOrDefaultAsync(x => x.HasRfid == rfid);
         }
     }
 }

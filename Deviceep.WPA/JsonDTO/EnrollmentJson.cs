@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Deviceep.WPA.JsonDTO
 {
-    public class CoursesJson
+    class EnrollmentJson
     {
         public int Id { get; set; }
         public string UserId { get; set; }
-        public string CourseName { get; set; }
-        public string CourseDescription { get; set; }
-
+        public int CourseId { get; set; }
+        public DateTime EnrollmentYear { get; set; }
+        public string EnrollmentTerm { get; set; }
     }
 }

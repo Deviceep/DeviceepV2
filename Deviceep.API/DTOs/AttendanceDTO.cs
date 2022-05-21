@@ -21,6 +21,7 @@ namespace Deviceep.API.DTOs
     public class CreateAttendanceDTO 
     {
         public string UserID { get; set; }
+        public string CourseName { get; set; }
         public int CourseId { get; set; }
         public DateTime AttendanceDate { get; set; }
     }

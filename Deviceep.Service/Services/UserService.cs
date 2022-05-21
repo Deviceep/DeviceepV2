@@ -5,6 +5,7 @@ using Deviceep.Entity.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Deviceep.Service.Services
 {
@@ -14,6 +15,13 @@ namespace Deviceep.Service.Services
         {
 
         }
+
+        public async Task<User> GetWithAttendancetsByIdAsync(string rfid)
+        {
+            var AlreadyExist = await _unitOfWork.Users.GetWithAttendancetsByIdAsync(rfid);
+            return AlreadyExist;
+        }
+
         public bool IsFieldValueUnique(string ID)
         {
             var AlreadyExists = _unitOfWork.Users.IsFieldValueUnique(x => x.Id == ID);

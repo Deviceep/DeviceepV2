@@ -30,6 +30,8 @@ namespace Deviceep.WPA
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -46,7 +48,7 @@ namespace Deviceep.WPA
             this.userControl31 = new Deviceep.WPA.UserControl3();
             this.userControl21 = new Deviceep.WPA.UserControl2();
             this.userControl11 = new Deviceep.WPA.UserControl1();
-            this.button8 = new System.Windows.Forms.Button();
+            this.userControl81 = new Deviceep.WPA.UserControl8();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -55,6 +57,7 @@ namespace Deviceep.WPA
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(71)))), ((int)(((byte)(103)))));
+            this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button6);
@@ -68,6 +71,32 @@ namespace Deviceep.WPA
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(250, 675);
             this.panel1.TabIndex = 0;
+            // 
+            // button9
+            // 
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button9.Location = new System.Drawing.Point(6, 530);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(241, 50);
+            this.button9.TabIndex = 3;
+            this.button9.Text = "RFID Scanner";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button8
+            // 
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button8.Location = new System.Drawing.Point(3, 474);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(241, 50);
+            this.button8.TabIndex = 2;
+            this.button8.Text = "Generate QRode";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -170,6 +199,7 @@ namespace Deviceep.WPA
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.userControl81);
             this.panel3.Controls.Add(this.userControl71);
             this.panel3.Controls.Add(this.userControl61);
             this.panel3.Controls.Add(this.userControl51);
@@ -233,18 +263,12 @@ namespace Deviceep.WPA
             this.userControl11.Size = new System.Drawing.Size(997, 669);
             this.userControl11.TabIndex = 0;
             // 
-            // button8
+            // userControl81
             // 
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button8.Location = new System.Drawing.Point(3, 474);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(241, 50);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "Generate QRode";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.userControl81.Location = new System.Drawing.Point(0, 4);
+            this.userControl81.Name = "userControl81";
+            this.userControl81.Size = new System.Drawing.Size(1013, 669);
+            this.userControl81.TabIndex = 4;
             // 
             // Form2
             // 
@@ -284,5 +308,7 @@ namespace Deviceep.WPA
         private UserControl1 userControl11;
         private UserControl7 userControl71;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private UserControl8 userControl81;
     }
 }

@@ -83,7 +83,7 @@ namespace Deviceep.API.Controllers
 
         
 
-       [HttpPost]
+        [HttpPost]
         // Possible Responses from the function
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -95,26 +95,35 @@ namespace Deviceep.API.Controllers
                 _logger.LogError($"Invalid POST attempt in {nameof(CreateAttendance)}");
                 return BadRequest(ModelState);
             }
-            bool isValidStudent = _userService.IsFieldValueUnique(StudentID);
+            var isValidStudent = _userService.IsFieldValueUnique(StudentID);
+            
+            
+            
+            
+            
+
             bool isValidCourse = _courseService.IsFieldValueUnique(CourseID);
             bool isValidEnrollment = await _enrollmentService.IsFieldValueUnique(StudentID,CourseID);
+            
             //var isValidHour = false;
             var isValidAttendance = await _attendanceService.IsAttendanceExists(StudentID,CourseID);
-            var model = new CreateAttendanceDTO { CourseId = CourseID, UserID= StudentID, AttendanceDate = DateTime.Now};
+            
+            
 
-            if (isValidStudent /* && isValidHour && isValidAttendance */)
+            if (isValidStudent )
             {
                 if (isValidCourse)
                 {
-                    if (isValidEnrollment)
+                    if (isValidEnrollment )
                     {
                         if (!isValidAttendance)
                         {
-
-                            var CreateAttendance = _mapper.Map<Attendance>(model);
-                            await _attendanceService.AddAsync(CreateAttendance);
-                            return Ok("");
-
+                            
+                                var model = new CreateAttendanceDTO { CourseId = CourseID, UserID = StudentID, AttendanceDate = DateTime.Now };
+                                var CreateAttendance = _mapper.Map<Attendance>(model);
+                                                           await _attendanceService.AddAsync(CreateAttendance);
+                                                            return Ok("");
+                          
                         }
                         else return BadRequest("You Have Attendance");
                     }
@@ -126,6 +135,60 @@ namespace Deviceep.API.Controllers
             else { return BadRequest("No Student"); }
            
             
+        }
+
+        [Route("RfidAttendance")]
+        [HttpPost]
+        // Possible Responses from the function
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> CreateAttendanceRfid(/*[FromBody] CreateAttendanceDTO createAttendanceDTO*/  int CourseID, string rfid)
+        {
+            if (!ModelState.IsValid)
+            {
+                _logger.LogError($"Invalid POST attempt in {nameof(CreateAttendance)}");
+                return BadRequest(ModelState);
+            }
+            
+            var isValidRfid = await _userService.GetWithAttendancetsByIdAsync(rfid);
+
+
+            var isValidRfidAStudent = _userService.IsFieldValueUnique(isValidRfid.Id);
+            bool isValidEnrollmentRfid = await _enrollmentService.IsFieldValueUnique(isValidRfid.Id, CourseID);
+
+            bool isValidCourse = _courseService.IsFieldValueUnique(CourseID);
+
+            //var isValidHour = false;
+            var isValidAttendance = await _attendanceService.IsAttendanceExists(isValidRfid.Id, CourseID);
+
+
+
+            if (isValidRfidAStudent)
+            {
+                if (isValidCourse)
+                {
+                    if ( isValidEnrollmentRfid)
+                    {
+                        if (!isValidAttendance)
+                        {
+                            
+                                var model = new CreateAttendanceDTO { CourseId = CourseID, UserID = isValidRfid.Id, AttendanceDate = DateTime.Now };
+                                var CreateAttendance = _mapper.Map<Attendance>(model);
+                                await _attendanceService.AddAsync(CreateAttendance);
+                                return Ok("");
+                           
+                        }
+                        else return BadRequest("You Have Attendance");
+                    }
+                    else return BadRequest("Student is not Enrolled in this Course!");
+                }
+                else return BadRequest("No Such Lesson!");
+
+            }
+            else { return BadRequest("No Student"); }
+
+
         }
         // Controls if the user has the right verifications to use this function
         [Authorize]

@@ -50,8 +50,11 @@ namespace Deviceep.API.Mapping
                 CreateMap<User, LoginUserDTO>().ReverseMap();
                 CreateMap<User, CreateUserDTO>().ReverseMap();
                 CreateMap<User, UpdateUserDTO>().ReverseMap();
-                
-                
+                //Enrollment
+                CreateMap<Enrollments, EnrollmentDTO>().ReverseMap();
+
+
+
 
             }
         }

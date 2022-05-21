@@ -28,6 +28,7 @@ namespace Deviceep.WPA
             userControl51.Hide();
             userControl61.Hide();
             userControl71.Hide();
+            userControl81.Hide();
             userControl11.Show();
             userControl11.BringToFront();
            
@@ -42,6 +43,7 @@ namespace Deviceep.WPA
             userControl51.Hide();
             userControl61.Hide();
             userControl71.Hide();
+            userControl81.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -52,6 +54,7 @@ namespace Deviceep.WPA
             userControl51.Hide();
             userControl61.Hide();
             userControl71.Hide();
+            userControl81.Hide();
             userControl21.Show();
             userControl21.BringToFront();
         }
@@ -88,6 +91,7 @@ namespace Deviceep.WPA
             userControl41.Hide();
             userControl61.Hide();
             userControl71.Hide();
+            userControl81.Hide();
             userControl51.Show();
             userControl51.BringToFront();
         }
@@ -100,6 +104,7 @@ namespace Deviceep.WPA
             userControl41.Hide();
             userControl51.Hide();
             userControl71.Hide();
+            userControl81.Hide();
             userControl61.Show();
             userControl61.BringToFront();
         }
@@ -117,12 +122,26 @@ namespace Deviceep.WPA
             userControl41.Hide();
             userControl51.Hide();
             userControl61.Hide();
+            userControl81.Hide();
             userControl71.Show();
             userControl71.BringToFront();
 
 
             
             
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            userControl11.Hide();
+            userControl21.Hide();
+            userControl31.Hide();
+            userControl41.Hide();
+            userControl51.Hide();
+            userControl61.Hide();
+            userControl71.Hide();
+            userControl81.Show();
+            userControl81.BringToFront();
         }
     }
 }

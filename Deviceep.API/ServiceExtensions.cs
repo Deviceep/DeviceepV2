@@ -130,7 +130,7 @@ namespace Deviceep.API
                 {
                     // Can define specific end points to have much more control
                     Endpoint = "*",
-                    Limit = 5,
+                    Limit = 8,
                     Period = "1s"
                 },
                

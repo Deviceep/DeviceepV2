@@ -9,8 +9,7 @@ namespace Deviceep.Core.Repositories
     public interface IAttendanceRepository : IRepository<Attendance>
         
     {
-        public Task<Attendance> GetWithAttendanceByIdAsync(int Id);
-        public Task<Attendance> GetWithAttendancetsByIdAsync(int Id);
+        
         public Task<bool> IsAttendanceExists(string StudentID, int CourseId);
     }
 }

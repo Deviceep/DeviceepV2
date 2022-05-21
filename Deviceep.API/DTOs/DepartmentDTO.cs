@@ -10,7 +10,7 @@ namespace Deviceep.API.DTOs
         public int Id { get; set; }
         
 
-        public ICollection<UserDepartmentDTO> userDepartmentDTO { get; set; }
+        
     }
     public class CreateDepartmentDTO
     {

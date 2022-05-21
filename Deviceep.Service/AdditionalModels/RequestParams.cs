@@ -10,7 +10,7 @@ namespace Deviceep.Service.AdditionalModels
         const int maxPageSize = 50;
 
         public int PageNnumber { get; set; } = 1;
-        private int _pageSize = 10;
+        private int _pageSize = 30;
 
         public int PageSize
         {

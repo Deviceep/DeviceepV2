@@ -97,6 +97,7 @@ namespace Deviceep.Data.Repositories
         }
         public bool IsFieldValueUnique(Expression<Func<TEntity, bool>> predicate)
         {
+           
             var alreadyExists = _dbSet.Any<TEntity>(predicate);
 
             return alreadyExists;

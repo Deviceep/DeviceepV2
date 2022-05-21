@@ -47,16 +47,24 @@ namespace Deviceep.WPA
             var result = JsonConvert.DeserializeObject<List<UserJson>>(response.Result);
             dataGridView1.DataSource = result;
 
+           
+
+
             dataGridView1.Columns[0].DefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.Columns[1].DefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.Columns[2].DefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.Columns[3].DefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.Columns[4].DefaultCellStyle.ForeColor = Color.Black;
-            
-            
+
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
