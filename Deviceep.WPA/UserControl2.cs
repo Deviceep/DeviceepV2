@@ -28,6 +28,7 @@ namespace Deviceep.WPA
 
         private void UserControl2_Load(object sender, EventArgs e)
         {
+            #region API & Datagrid controller
             client.BaseAddress = new Uri("https://localhost:44326/api/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -41,7 +42,7 @@ namespace Deviceep.WPA
             dataGridView1.Columns[2].DefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.Columns[3].DefaultCellStyle.ForeColor = Color.Black;
             dataGridView1.Columns[4].DefaultCellStyle.ForeColor = Color.Black;
-
+            #endregion
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

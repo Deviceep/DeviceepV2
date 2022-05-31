@@ -41,6 +41,7 @@ namespace Deviceep.WPA
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.userControl81 = new Deviceep.WPA.UserControl8();
             this.userControl71 = new Deviceep.WPA.UserControl7();
             this.userControl61 = new Deviceep.WPA.UserControl6();
             this.userControl51 = new Deviceep.WPA.UserControl5();
@@ -48,7 +49,6 @@ namespace Deviceep.WPA
             this.userControl31 = new Deviceep.WPA.UserControl3();
             this.userControl21 = new Deviceep.WPA.UserControl2();
             this.userControl11 = new Deviceep.WPA.UserControl1();
-            this.userControl81 = new Deviceep.WPA.UserControl8();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -213,6 +213,13 @@ namespace Deviceep.WPA
             this.panel3.Size = new System.Drawing.Size(1000, 675);
             this.panel3.TabIndex = 1;
             // 
+            // userControl81
+            // 
+            this.userControl81.Location = new System.Drawing.Point(0, 4);
+            this.userControl81.Name = "userControl81";
+            this.userControl81.Size = new System.Drawing.Size(1013, 669);
+            this.userControl81.TabIndex = 4;
+            // 
             // userControl71
             // 
             this.userControl71.Location = new System.Drawing.Point(5, 4);
@@ -263,13 +270,6 @@ namespace Deviceep.WPA
             this.userControl11.Size = new System.Drawing.Size(997, 669);
             this.userControl11.TabIndex = 0;
             // 
-            // userControl81
-            // 
-            this.userControl81.Location = new System.Drawing.Point(0, 4);
-            this.userControl81.Name = "userControl81";
-            this.userControl81.Size = new System.Drawing.Size(1013, 669);
-            this.userControl81.TabIndex = 4;
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -281,6 +281,7 @@ namespace Deviceep.WPA
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.Shown += new System.EventHandler(this.Form2_Shown);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

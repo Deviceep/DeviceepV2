@@ -22,6 +22,7 @@ namespace Deviceep.WPA
 
         private void button1_Click(object sender, EventArgs e)
         {
+            #region QR Code Controller
             client.BaseAddress = new Uri("https://localhost:44326/api/");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -30,6 +31,7 @@ namespace Deviceep.WPA
             
             pictureBox1.Image = Bitmap.FromStream(response.Result);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            #endregion
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

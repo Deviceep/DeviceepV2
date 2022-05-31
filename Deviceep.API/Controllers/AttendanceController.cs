@@ -153,8 +153,12 @@ namespace Deviceep.API.Controllers
             
             var isValidRfid = await _userService.GetWithAttendancetsByIdAsync(rfid);
 
-
-            var isValidRfidAStudent = _userService.IsFieldValueUnique(isValidRfid.Id);
+            if (isValidRfid == null)
+            {
+                return BadRequest("No such student");
+            }
+                var isValidRfidAStudent = _userService.IsFieldValueUnique(isValidRfid.Id);
+            
             bool isValidEnrollmentRfid = await _enrollmentService.IsFieldValueUnique(isValidRfid.Id, CourseID);
 
             bool isValidCourse = _courseService.IsFieldValueUnique(CourseID);
